@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{TITLE}}</title>
+  <meta name="description" content="{{DESCRIPTION}}">
+  <link rel="stylesheet" href="assets/css/kids-design.css">
+  <script type="module" src="theme.js"></script>
+  <script type="module" src="navbar.js"></script>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a class="nav-brand" href="index.html">
+        <svg class="mdu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+        </svg>
+        <span class="nav-brand__text">KTM Academy</span>
+      </a>
+      <div class="nav-wrapper">
+        <button class="hamburger" type="button" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
+        <div class="nav-links" id="navLinks">
+          <li><a href="index.html#home" class="nav-links__link">Home</a></li>
+          <li><a href="index.html#about" class="nav-links__link">About</a></li>
+          <li><a href="plans.html" class="nav-links__link">Study Plans</a></li>
+          <li><a href="contact.html" class="nav-links__link">Contact</a></li>
+          <li><a href="dashboard.html" class="nav-links__link dashboard-link hidden">Dashboard</a></li>
+          <li class="admin-only"><a href="admin.html" class="nav-links__link">Admin</a></li>
+        </div>
+        <div class="nav-actions">
+          <button id="themeToggle" class="btn btn--outline" type="button" aria-label="Switch to light mode">
+            <svg class="mdu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79"/>
+            </svg>
+          </button>
+        </div>
+        <div class="menu-overlay"></div>
+        <div class="mobile-menu">
+          <div class="nav-links">
+            <li><a href="index.html#home" class="nav-links__link">Home</a></li>
+            <li><a href="index.html#about" class="nav-links__link">About</a></li>
+            <li><a href="plans.html" class="nav-links__link">Study Plans</a></li>
+            <li><a href="contact.html" class="nav-links__link">Contact</a></li>
+            <li><a href="dashboard.html" class="nav-links__link dashboard-link hidden">Dashboard</a></li>
+            <li class="admin-only"><a href="admin.html" class="nav-links__link">Admin</a></li>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="mdu-legal-page">
+{{CONTENT}}
+  </main>
+
+  {{FOOTER}}
+
+  <div id="loading" class="loading hidden" aria-hidden="true">
+    <div class="spinner"></div>
+  </div>
+  <div id="alertContainer" role="status" aria-live="polite"></div>
+</body>
+</html>

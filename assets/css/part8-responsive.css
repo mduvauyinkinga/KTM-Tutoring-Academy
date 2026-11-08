@@ -1,0 +1,91 @@
+/* ================================================
+   23. RESPONSIVE BREAKPOINTS
+   ================================================ */
+@media (max-width: 768px) {
+  :root {
+    --header-height: 60px;
+  }
+
+  .nav-wrapper .hamburger {
+    display: flex;
+  }
+
+  .nav-wrapper .nav-links {
+    display: none;
+    position: absolute;
+    top: calc(var(--header-height) + 1px);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+    padding: var(--space-4);
+    box-shadow: var(--shadow-md);
+  }
+
+  .nav-wrapper .nav-links.active {
+    display: flex;
+  }
+
+  .sidebar {
+    transform: translateX(0);
+  }
+
+  .side-auth-panel {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .footer__legal {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 1.75rem;
+  }
+
+  .container {
+    padding-inline: 1rem;
+  }
+
+  .mdu-section {
+    padding-block: var(--space-10);
+  }
+
+  .feature-card {
+    padding: var(--space-4);
+  }
+
+  .card__body {
+    padding: var(--space-4);
+  }
+
+  .modal__dialog {
+    margin: 0 var(--space-3);
+  }
+
+  .footer__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ================================================
+   24. ACCESSIBILITY: REDUCED MOTION
+   ================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

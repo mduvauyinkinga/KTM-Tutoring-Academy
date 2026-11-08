@@ -1,0 +1,50 @@
+rules_version = '2';
+
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    function isAdmin() {
+      return request.auth != null && request.auth.token.admin == true;
+    }
+
+    function hasPaidAccess() {
+      let profile = firestore.get(
+        /databases/(default)/documents/users/$(request.auth.uid)
+      );
+      return request.auth != null
+        && profile.data.isPaid == true
+        && profile.data.paidAccessUntil is timestamp
+        && profile.data.paidAccessUntil > request.time;
+    }
+
+    function canReadContent() {
+      return request.auth != null
+        && (
+          isAdmin()
+          || resource.metadata.isFree == 'true'
+          || hasPaidAccess()
+        );
+    }
+
+    function canUploadPdf() {
+      return isAdmin()
+        && request.resource.size < 25 * 1024 * 1024
+        && request.resource.contentType == 'application/pdf';
+    }
+
+    match /lessons/{fileName} {
+      allow read: if canReadContent();
+      allow write: if canUploadPdf();
+    }
+
+    match /papers/{fileName} {
+      allow read: if canReadContent();
+      allow write: if canUploadPdf();
+    }
+
+    match /{allPaths=**} {
+      allow read: if isAdmin();
+      allow write: if canUploadPdf();
+    }
+  }
+}

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Admin - KTM Academy</title>
+  <script type="module" src="theme.js" defer></script>
+  <script type="module" src="admin.js" defer></script>
+  <script type="module" src="navbar.js"></script>
+</head>
+<body>
+
+<!-- ==================== NAVBAR ==================== -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a class="nav-brand" href="index.html">
+      <svg class="mdu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+      </svg>
+      <span class="nav-brand__text">KTM Academy</span>
+    </a>
+    <div class="nav-wrapper">
+      <button class="hamburger" type="button" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
+      <div class="nav-links" id="navLinks">
+        <li><a href="index.html" class="nav-links__link">Home</a></li>
+        <li><a href="plans.html" class="nav-links__link">Study Plans</a></li>
+        <li><a href="contact.html" class="nav-links__link">Contact</a></li>
+        <li><a href="dashboard.html" class="nav-links__link dashboard-link hidden">Dashboard</a></li>
+        <li class="admin-only"><a href="admin.html" class="nav-links__link">Admin</a></li>
+      </div>
+      <div class="nav-actions">
+        <button id="themeToggle" class="btn btn--outline" type="button" aria-label="Switch to light mode">
+          <svg class="mdu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79"/>
+          </svg>
+        </button>
+      </div>
+      <div class="menu-overlay"></div>
+      <div class="mobile-menu">
+        <div class="nav-links">
+          <li><a href="index.html" class="nav-links__link">Home</a></li>
+          <li><a href="plans.html" class="nav-links__link">Study Plans</a></li>
+          <li><a href="contact.html" class="nav-links__link">Contact</a></li>
+          <li><a href="dashboard.html" class="nav-links__link dashboard-link hidden">Dashboard</a></li>
+          <li class="admin-only"><a href="admin.html" class="nav-links__link">Admin</a></li>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+<!-- ==================== ADMIN SIDEBAR ==================== -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar__header">
+    <div class="sidebar__brand">KTM Academy</div>
+    <button class="sidebar__close" type="button" aria-label="Close navigation">
+      <svg class="mdu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+  </div>
+  <ul class="sidebar__nav">
+    <li class="sidebar__section">
+      <h3 class="sidebar__heading">Admin</h3>
+      <li class="sidebar__item"><a href="#overview" class="sidebar__link sidebar__link--active"><svg class="sidebar__icon mdu-icon dashboard" aria-hidden="true"></svg>Overview</a></li>
+      <li class="sidebar__item"><a href="#students" class="sidebar__link"><svg class="sidebar__icon mdu-icon users" aria-hidden="true"></svg>Students</a></li>
+      <li class="sidebar__item"><a href="#subscriptions" class="sidebar__link"><svg class="sidebar__icon mdu-icon star" aria-hidden="true"></svg>Subscriptions</a></li>
+      <li class="sidebar__item"><a href="#learning-centre" class="sidebar__link"><svg class="sidebar__icon mdu-icon learning-centre" aria-hidden="true"></svg>Learning Centre</a></li>
+      <li class="sidebar__item"><a href="#question-bank" class="sidebar__link"><svg class="sidebar__icon mdu-icon question-bank" aria-hidden="true"></svg>Question Bank</a></li>
+      <li class="sidebar__item"><a href="#examinations" class="sidebar__link"><svg class="sidebar__icon mdu-icon mock-examinations" aria-hidden="true"></svg>Examinations</a></li>
+      <li class="sidebar__item"><a href="#notifications" class="sidebar__link"><svg class="sidebar__icon mdu-icon notifications" aria-hidden="true"></svg>Notifications</a></li>
+      <li class="sidebar__item"><a href="#academic-calendar" class="sidebar__link"><svg class="sidebar__icon mdu-icon academic-calendar" aria-hidden="true"></svg>Academic Calendar</a></li>
+      <li class="sidebar__item"><a href="#reports" class="sidebar__link"><svg class="sidebar__icon mdu-icon gauge" aria-hidden="true"></svg>Reports</a></li>
+      <li class="sidebar__item"><a href="#settings" class="sidebar__link"><svg class="sidebar__icon mdu-icon settings" aria-hidden="true"></svg>Settings</a></li>
+    </li>
+  </ul>
+</aside>
+<div class="sidebar__overlay" id="sidebarOverlay"></div>
+
+<!-- ==================== MAIN CONTENT ==================== -->
+<main class="mdu-page-main">
+  <div class="mdu-container">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 24px;">
+      <div>
+        <span class="label">Admin Dashboard</span>
+        <h1 class="h1">Administration</h1>
+        <p class="mdu-copy" style="font-size: 14px; color: var(--color-text-secondary);">
+          Manage students, subscriptions, content and platform settings.
+        </p>
+      </div>
+    </div>
+    <!-- ==================== OVERVIEW STATS ==================== -->
+    <div class="stat-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px;">
+      <div class="stat-card"><div class="stat-card__label">Total Students</div><div class="stat-card__value">0</div></div>
+      <div class="stat-card"><div class="stat-card__label">Active Subscriptions</div><div class="stat-card__value">0</div></div>
+      <div class="stat-card"><div class="stat-card__label">Subscription Distribution</div><div class="stat-card__value">--</div></div>
+      <div class="stat-card"><div class="stat-card__label">Recent Registrations</div><div class="stat-card__value">0</div></div>
+    </div>
+
+    <!-- ==================== STUDENT MANAGEMENT ==================== -->
+    <div class="card">
+      <div class="card__header"><h3 class="card__title">Student Management</h3></div>
+      <div class="card__body" style="display: flex; gap: 16px; margin-bottom: 16px;">
+        <input type="text" class="field__input" placeholder="Search students…" style="flex: 1;">
+        <select class="field__select" style="min-width: 140px;"><option>Filter by grade</option><option value="10">Grade 10</option><option value="11">Grade 11</option><option value="12">Grade 12</option></select>
+        <select class="field__select" style="min-width: 140px;"><option>Filter by plan</option><option value="trial">Trial</option><option value="gold">Gold</option><option value="platinum">Platinum</option><option value="premium">Premium</option></select>
+        <button class="btn btn--secondary btn--sm">Filter</button>
+      </div>
+      <div class="card__body">
+        <div class="table-responsive" style="overflow-x: auto;">
+          <table class="table"><thead><tr><th>Name</th><th>Email</th><th>Grade</th><th>Plan</th><th>Status</th></tr></thead><tbody id="studentTableBody"><tr><td colspan="5" style="text-align: center; padding: 32px; color: var(--color-text-secondary);">No students found.</td></tr></tbody></table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SUBSCRIPTION MANAGEMENT ==================== -->
+    <div class="card">
+      <div class="card__header"><h3 class="card__title">Subscription Management</h3></div>
+      <div class="card__body">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px;">
+          <div class="plan-card" style="border: 1px solid #e2e8f0; border-radius: 10px; padding: 20px;"><div style="font-size: 14px; font-weight: 700; color: #64748b;">Bronze</div><div style="font-size: 24px; font-weight: 800; color: #17243a; margin: 8px 0;">Free trial</div><div class="badge badge--subtle" style="margin-bottom: 12px;">Free</div></div>
+          <div class="plan-card" style="border: 1px solid #e2e8f0; border-radius: 10px; padding: 20px;"><div style="font-size: 14px; font-weight: 700; color: #1d4ed8;">Gold</div><div style="font-size: 24px; font-weight: 800; color: #17243a; margin: 8px 0;">R250/month</div><div class="badge badge--subtle">Paid</div></div>
+          <div class="plan-card" style="border: 1px solid #e2e8f0; border-radius: 10px; padding: 20px;"><div style="font-size: 14px; font-weight: 700; color: #1d4ed8;">Premium</div><div style="font-size: 24px; font-weight: 800; color: #17243a; margin: 8px 0;">R400/month</div><div class="badge badge--subtle">Paid</div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<div id="loading" class="loading hidden" aria-hidden="true"><div class="spinner"></div></div>
+<div id="alertContainer" role="status" aria-live="polite"></div>
+</body>
+</html>
+

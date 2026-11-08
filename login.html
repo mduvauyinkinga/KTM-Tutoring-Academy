@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <title>Login - KTM Academy</title>
+  <meta name="description" content="Log in to KTM Academy to access your Mathematical Literacy lessons, past papers and dashboard.">
+  <script src="env.js"></script>
+  <script type="module" src="login.js" defer></script>
+  <script type="module" src="theme.js" defer></script>
+  <script type="module" src="navbar.js"></script>
+</head>
+<body>
+<!-- ==================== NAVBAR ==================== -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a class="nav-brand" href="index.html">
+      <svg class="mdu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+      </svg>
+      <span class="nav-brand__text">KTM Academy</span>
+    </a>
+    <div class="nav-wrapper">
+      <button class="hamburger" type="button" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links" id="navLinks">
+        <li><a href="index.html#home" class="nav-links__link">Home</a></li>
+        <li><a href="index.html#about" class="nav-links__link">About</a></li>
+        <li><a href="plans.html" class="nav-links__link">Study Plans</a></li>
+        <li><a href="index.html#learning" class="nav-links__link">Learning</a></li>
+        <li><a href="index.html#contact" class="nav-links__link">Contact</a></li>
+        <li><a href="register.html" class="nav-links__link">Register</a></li>
+      </div>
+      <div class="nav-actions">
+        <button id="themeToggle" class="btn btn--outline" type="button" aria-label="Switch to light mode">
+          <svg class="mdu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79"/>
+          </svg>
+        </button>
+        <button id="sideAuthToggle" class="side-auth-toggle btn btn--outline btn--sm" type="button" aria-label="Open sign in panel">
+          <svg class="mdu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 16px; height: 16px;">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/>
+          </svg>
+        </button>
+      </div>
+      <div class="menu-overlay"></div>
+      <div class="mobile-menu">
+        <div class="nav-links">
+          <li><a href="index.html#home" class="nav-links__link">Home</a></li>
+          <li><a href="index.html#about" class="nav-links__link">About</a></li>
+          <li><a href="plans.html" class="nav-links__link">Study Plans</a></li>
+          <li><a href="index.html#learning" class="nav-links__link">Learning</a></li>
+          <li><a href="index.html#contact" class="nav-links__link">Contact</a></li>
+          <li><a href="register.html" class="nav-links__link">Register</a></li>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ==================== PAGE HEADER ==================== -->
+<section class="mdu-section mdu-section--spacious" style="background: var(--color-bg);">
+  <div class="mdu-container">
+    <div class="mdu-section--centered mdu-content">
+      <span class="label">Authentication</span>
+      <h1 class="h1">Welcome back</h1>
+      <p class="lead mdu-copy">
+        Sign in to continue your learning journey on KTM Academy.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== LOGIN SIDE PANEL ==================== -->
+<div class="side-auth-overlay" id="sideAuthOverlay"></div>
+<div class="side-auth-panel modal__dialog" id="loginPanel">
+  <div class="side-auth-header">
+    <h2 class="side-auth-header__title">Log In</h2>
+    <button class="modal__close" type="button" aria-label="Close panel">
+      <svg class="mdu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+  </div>
+
+  <div class="side-auth-form">
+    <form id="loginForm" novalidate>
+      <div class="field">
+        <label class="field__label" for="loginEmail">Email address</label>
+        <input class="field__input" type="email" id="loginEmail" name="loginEmail" autocomplete="email" required placeholder="you@example.com">
+      </div>
+      <div class="field">
+        <label class="field__label" for="loginPassword">Password</label>
+        <input class="field__input" type="password" id="loginPassword" name="loginPassword" autocomplete="current-password" required minlength="8" placeholder="••••••••">
+      </div>
+      <div class="field field__checkbox">
+        <input type="checkbox" id="rememberMe" name="rememberMe" value="true">
+        <label for="rememberMe" style="font-size: var(--text-sm); font-weight: 600; color: var(--color-text-primary); cursor: pointer;">Remember me</label>
+      </div>
+      <a href="#" class="field__hint" style="font-size: var(--text-sm); color: var(--color-accent); align-self: flex-end; margin-bottom: var(--space-4);">Forgot password?</a>
+      <button type="submit" class="btn btn--primary" id="loginSubmit" style="width: 100%;">
+        <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+          <polyline points="10 17 15 12 10 7"/>
+          <line x1="15" y1="12" x2="3" y2="12"/>
+        </svg>
+        Sign In
+      </button>
+      <div class="field__hint" style="text-align: center; margin-top: var(--space-4); font-size: var(--text-sm); color: var(--color-text-secondary);">
+        <a href="admin.html" style="color: var(--color-accent); font-size: var(--text-sm);">Admin Login</a>
+      </div>
+    </form>
+
+    <div class="field__hint" style="text-align: center; margin-top: var(--space-6); font-size: var(--text-sm); color: var(--color-text-secondary);">
+      <span>Don't have an account?</span>
+      <a href="register.html" style="color: var(--color-accent); font-weight: 700; font-size: var(--text-sm);">Create one</a>
+    </div>
+  </div>
+</div>
+
+<div id="loading" class="loading hidden" aria-hidden="true">
+  <div class="spinner"></div>
+</div>
+<div id="alertContainer" role="status" aria-live="polite"></div>
+
+<div id="cookieConsentBanner" class="cookie-banner hidden" role="dialog" aria-live="polite" aria-label="Cookie consent">
+  <div class="cookie-banner-content" style="max-width: 600px; margin: 0 auto;">
+    <div>
+      <strong style="display: inline-flex; align-items: center; gap: 8px;">
+        <svg class="mdu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 18px; height: 18px;">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M16.24 7.76a6 6 0 0 1 0 8.49M8.52 7.76a6 6 0 0 0 0 8.49M20.74 7.76a6 6 0 0 1 0 8.49"/>
+        </svg>
+        Cookie notice
+      </strong>
+      <p style="margin-top: 4px; opacity: 0.9;">
+        We use essential cookies for the website to work. We may also use analytics cookies.
+        Choose your preference.
+      </p>
+    </div>
+    <div class="cookie-banner-actions" style="display: flex; gap: 12px; margin-top: 12px; flex-wrap: wrap;">
+      <button id="cookieEssentialBtn" class="btn btn--secondary" type="button">Essential only</button>
+      <button id="cookieAcceptBtn" class="btn btn--primary" type="button">Accept analytics</button>
+    </div>
+    <p style="margin-top: 12px; font-size: 14px; opacity: 0.85; text-align: center;">
+      <a href="privacy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+      &middot; <a href="popia.html" target="_blank" rel="noopener noreferrer">POPIA</a>
+    </p>
+    <noscript>
+      <p style="margin-top: 8px; font-size: 14px; opacity: 0.8; text-align: center;">Cookie settings may not work without JavaScript. Please review your browser settings.</p>
+    </noscript>
+  </div>
+</div>
+
+<script>
+  // Cookie consent UI (local record only). Included across pages for POPIA accountability.
+  const consentBanner = document.getElementById('cookieConsentBanner');
+  const essentialBtn = document.getElementById('cookieEssentialBtn');
+  const acceptBtn = document.getElementById('cookieAcceptBtn');
+
+  const consentKey = 'mdu_cookie_consent';
+
+  function showBanner() { if (consentBanner) consentBanner.classList.remove('hidden'); }
+  function hideBanner() { if (consentBanner) consentBanner.classList.add('hidden'); }
+
+  function setConsent(value) {
+    try {
+      localStorage.setItem(consentKey, JSON.stringify({ value, setAt: new Date().toISOString() }));
+    } catch (_) {}
+    hideBanner();
+  }
+
+  try {
+    const stored = localStorage.getItem(consentKey);
+    if (!stored) showBanner();
+    else hideBanner();
+  } catch (_) { showBanner(); }
+
+  essentialBtn?.addEventListener('click', () => setConsent('essential'));
+  acceptBtn?.addEventListener('click', () => setConsent('analytics'));
+</script>
+
+</body>
+</html>
+        <li><a href="index.html#about" class="nav-links__link">About</a></li>
+        <li><a href="plans.html" class="nav-links__link">Study Plans</a></li>
+        <li><a href="index.html#learning" class="nav-links__link">Learning</a></li>
+        <li><a href="index.html#contact" class="nav-links__link">Contact</a></li>
+        <li><a href="register.html" class="nav-links__link">Register</a></li>
+      </div>
+
+      <div class="nav-actions">
+        <button id="themeToggle" class="btn btn--outline" type="button" aria-label="Switch to light mode">
+          <svg class="mdu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"/>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="menu-overlay"></div>
+
+      <div class="mobile-menu">
+        <div class="nav-links">
+          <li><a href="index.html#home" class="nav-links__link">Home</a></li>
+          <li><a href="index.html#about" class="nav-links__link">About</a></li>
+          <li><a href="plans.html" class="nav-links__link">Study Plans</a></li>
+          <li><a href="index.html#learning" class="nav-links__link">Learning</a></li>
+          <li><a href="index.html#contact" class="nav-links__link">Contact</a></li>
+          <li><a href="register.html" class="nav-links__link">Register</a></li>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ==================== LOGIN PANEL ==================== -->
+<div class="modal modal--open" id="loginPanel">
+  <div class="modal__overlay"></div>
+  <div class="modal__dialog">
+    <div class="side-auth-header">
+      <h2 class="side-auth-header__title">Log In</h2>
+      <button class="modal__close" type="button" aria-label="Close">
+        <svg class="mdu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="side-auth-form">
+      <form id="loginForm" novalidate>
+        <div class="field">
+          <label class="field__label" for="loginEmail">Email</label>
+          <input class="field__input" type="email" id="loginEmail" name="loginEmail" autocomplete="email" required placeholder="you@example.com">
+        </div>
+        <div class="field">
+          <label class="field__label" for="loginPassword">Password</label>
+          <input class="field__input" type="password" id="loginPassword" name="loginPassword" autocomplete="current-password" required minlength="8" placeholder="Enter your password">
+        </div>
+        <div class="field">
+          <div class="field__checkbox" id="rememberMe" style="border-color: var(--color-border);">
+            <input type="checkbox" id="rememberMe" name="rememberMe" value="true">
+          </div>
+          <label for="rememberMe" style="font-size: var(--text-sm); font-weight: 600; color: var(--color-text-primary);">Remember me</label>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <button type="submit" class="btn btn--primary" id="loginSubmit" style="width: 100%;">
+            <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+              <polyline points="10 17 15 12 10 7"/>
+              <line x1="15" y1="12" x2="3" y2="12"/>
+            </svg>
+            Sign In
+          </button>
+        </div>
+        <div class="field__hint" style="text-align: center; margin-top: 12px;">
+          <a href="admin.html" style="color: var(--color-accent); font-size: var(--text-sm);">Admin Login</a>
+        </div>
+      </form>
+
+      <div class="field__hint" style="text-align: center; margin-top: 16px;">
+        <span style="font-size: var(--text-sm); color: var(--color-text-secondary);">Don't have an account?</span>
+        <a href="register.html" style="color: var(--color-accent); font-weight: 700; font-size: var(--text-sm);">Create one</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<body>

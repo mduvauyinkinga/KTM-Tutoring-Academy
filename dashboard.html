@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <title>Dashboard - KTM Academy</title>
+  <meta name="description" content="KTM Academy learner dashboard: your lesson and paper centre.">
+  <script type="module" src="theme.js" defer></script>
+  <script type="module" src="dashboard.js" defer></script>
+  <script type="module" src="navbar.js"></script>
+</head>
+<body>
+
+<!-- ==================== NAVBAR ==================== -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a class="nav-brand" href="index.html">
+      <svg class="mdu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+      </svg>
+      <span class="nav-brand__text">KTM Academy</span>
+    </a>
+
+    <div class="nav-wrapper">
+      <button class="hamburger" type="button" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <li><a href="index.html#home" class="nav-links__link">Home</a></li>
+        <li><a href="index.html#about" class="nav-links__link">About</a></li>
+        <li><a href="plans.html" class="nav-links__link">Study Plans</a></li>
+        <li><a href="contact.html" class="nav-links__link">Contact</a></li>
+        <li><a href="dashboard.html" class="nav-links__link dashboard-link hidden">Dashboard</a></li>
+        <li class="admin-only"><a href="admin.html" class="nav-links__link">Admin</a></li>
+      </div>
+
+      <div class="nav-actions">
+        <button id="themeToggle" class="btn btn--outline" type="button" aria-label="Switch to light mode">
+          <svg class="mdu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"/>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="menu-overlay"></div>
+
+      <div class="mobile-menu">
+        <div class="nav-links">
+          <li><a href="index.html#home" class="nav-links__link">Home</a></li>
+          <li><a href="index.html#about" class="nav-links__link">About</a></li>
+          <li><a href="plans.html" class="nav-links__link">Study Plans</a></li>
+          <li><a href="contact.html" class="nav-links__link">Contact</a></li>
+          <li><a href="dashboard.html" class="nav-links__link dashboard-link hidden">Dashboard</a></li>
+          <li class="admin-only"><a href="admin.html" class="nav-links__link">Admin</a></li>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+<!-- ==================== DASHBOARD SIDEBAR ==================== -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar__header">
+    <div class="sidebar__brand">KTM Academy</div>
+    <button class="sidebar__close" type="button" aria-label="Close navigation">
+      <svg class="mdu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+  </div>
+
+  <ul class="sidebar__nav">
+    <li class="sidebar__section">
+      <h3 class="sidebar__heading">Dashboard</h3>
+      <li class="sidebar__item">
+        <a href="#overview" class="sidebar__link sidebar__link--active">
+          <svg class="sidebar__icon mdu-icon dashboard" aria-hidden="true"></svg>
+          Overview
+        </a>
+      </li>
+    </li>
+
+    <li class="sidebar__section">
+      <h3 class="sidebar__heading">Learning Centre</h3>
+      <li class="sidebar__item">
+        <a href="#learning-centre" class="sidebar__link">
+          <svg class="sidebar__icon mdu-icon learning-centre" aria-hidden="true"></svg>
+          Learning Centre
+        </a>
+      </li>
+      <li class="sidebar__item">
+        <a href="#my-subjects" class="sidebar__link">
+          <svg class="sidebar__icon mdu-icon my-subjects" aria-hidden="true"></svg>
+          My Subjects
+        </a>
+      </li>
+      <li class="sidebar__item">
+        <a href="#study-materials" class="sidebar__link">
+          <svg class="sidebar__icon mdu-icon study-materials" aria-hidden="true"></svg>
+          Study Materials
+        </a>
+      </li>
+      <li class="sidebar__item">
+        <a href="#practice-exercises" class="sidebar__link">
+          <svg class="sidebar__icon mdu-icon exercises" aria-hidden="true"></svg>
+          Practice Exercises
+        </a>
+      </li>
+      <li class="sidebar__item">
+        <a href="#mock-examinations" class="sidebar__link">
+          <svg class="sidebar__icon mdu-icon mock-examinations" aria-hidden="true"></svg>
+          Mock Examinations
+        </a>
+      </li>
+      <li class="sidebar__item">
+        <a href="#question-bank" class="sidebar__link">
+          <svg class="sidebar__icon mdu-icon question-bank" aria-hidden="true"></svg>
+          Question Bank
+        </a>
+      </li>
+      <li class="sidebar__item">
+        <a href="#my-progress" class="sidebar__link">
+          <svg class="sidebar__icon mdu-icon my-progress" aria-hidden="true"></svg>
+          My Progress
+        </a>
+      </li>
+      <li class="sidebar__item">
+        <a href="#bookmarks" class="sidebar__link">
+          <svg class="sidebar__icon mdu-icon bookmarks" aria-hidden="true"></svg>
+          Bookmarks
+        </a>
+      </li>
+    </li>
+
+    <li class="sidebar__section">
+      <h3 class="sidebar__heading">Support</h3>
+      <li class="sidebar__item">
+        <a href="#notifications" class="sidebar__link">
+          <svg class="sidebar__icon mdu-icon notifications" aria-hidden="true"></svg>
+          Notifications
+          <span class="sidebar__badge">3</span>
+        </a>
+      </li>
+      <li class="sidebar__item">
+        <a href="#academic-calendar" class="sidebar__link">
+          <svg class="sidebar__icon mdu-icon academic-calendar" aria-hidden="true"></svg>
+          Academic Calendar
+        </a>
+      </li>
+    </li>
+
+    <li class="sidebar__section">
+      <h3 class="sidebar__heading">Account</h3>
+      <li class="sidebar__item">
+        <a href="#account-settings" class="sidebar__link">
+          <svg class="sidebar__icon mdu-icon account-settings" aria-hidden="true"></svg>
+          Account Settings
+        </a>
+      </li>
+    </li>
+  </ul>
+</aside>
+
+<div class="sidebar__overlay" id="sidebarOverlay"></div>
+
+<!-- ==================== MAIN CONTENT ==================== -->
+<main class="mdu-page-main">
+  <div class="mdu-container">
+    <div class="dashboard-header" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 24px;">
+      <div>
+        <span class="label">Dashboard</span>
+        <h1 class="h1">Hi, <span id="userInfo"></span></h1>
+        <p class="mdu-copy" style="font-size: 14px; color: var(--color-text-secondary);">
+          Welcome back to your learning centre. Here is an overview of your progress.
+        </p>
+      </div>
+      <div class="dashboard-actions" style="display: flex; gap: 8px; flex-wrap: wrap;">
+        <a href="plans.html" class="btn btn--outline btn--sm">
+          <svg class="mdu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 14px; height: 14px; margin-right: 6px;">
+            <path d="M5 12h14"/>
+            <path d="M12 5l7 7-7 7"/>
+          </svg>
+          Upgrade plan
+        </a>
+      </div>
+    </div>
+
+    <!-- ==================== OVERVIEW STATS ==================== -->
+    <div class="stat-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px;">
+      <div class="stat-card">
+        <div class="stat-card__label">Lessons Completed</div>
+        <div class="stat-card__value" id="statLessonsCompleted">0</div>
+        <div class="stat-card__suffix">of 12</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card__label">Tests Completed</div>
+        <div class="stat-card__value" id="statTestsCompleted">0</div>
+        <div class="stat-card__suffix">this term</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card__label">Average Performance</div>
+        <div class="stat-card__value" id="statAvgPerformance">--</div>
+        <div class="stat-card__suffix">test score</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card__label">Current Plan</div>
+        <p id="planBadge" class="stat-card__label">Loading…</p>
+      </div>
+    </div>
+
+    <!-- ==================== CONTINUE LEARNING ==================== -->
+    <div style="display: grid; grid-template-columns: 1fr 300px; gap: 24px; margin-bottom: 24px; align-items: start;">
+      <div class="card">
+        <div class="card__header">
+          <h3 class="card__title">Continue learning</h3>
+        </div>
+        <div class="card__body">
+          <div class="empty-state" id="continueLearningEmpty" style="padding: 32px;">
+            <svg class="mdu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 48px; height: 48px; opacity: 0.4;">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+            </svg>
+            <h3>No lessons to continue</h3>
+            <p class="mdu-copy">Start exploring the Learning Centre to begin your lessons.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card__header">
+          <h3 class="card__title">Recommended revision topics</h3>
+        </div>
+        <div class="card__body">
+          <div class="empty-state" id="recommendedTopicsEmpty" style="padding: 24px;">
+            <svg class="mdu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 40px; height: 40px; opacity: 0.4;">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 16v-4M12 8h.01"/>
+            </svg>
+            <h3>No recommendations yet</h3>
+            <p class="mdu-copy">Complete lessons to receive personalised revision suggestions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== RECENT NOTIFICATIONS ==================== -->
+    <div class="card">
+      <div class="card__header">
+        <h3 class="card__title">Recent notifications</h3>
+      </div>
+      <div class="card__body">
+        <div id="notificationsList">
+          <div class="empty-state" style="padding: 24px;">
+            <svg class="mdu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 40px; height: 40px; opacity: 0.4;">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+            </svg>
+            <h3>No notifications</h3>
+            <p class="mdu-copy">You will see lesson updates, mock examination announcements and academic reminders here.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== LESSONS & PAST PAPERS ==================== -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-bottom: 24px;">
+      <div class="card">
+        <div class="card__header">
+          <h3 class="card__title">My lessons</h3>
+        </div>
+        <div class="card__body" id="lessonsList">
+          <div class="empty-state" style="padding: 16px;">
+            <svg class="mdu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 40px; height: 40px; opacity: 0.4;">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+            </svg>
+            <p class="mdu-copy">Loading lessons…</p>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card__header">
+          <h3 class="card__title">Past papers</h3>
+        </div>
+        <div class="card__body" id="papersList">
+          <div class="empty-state" style="padding: 16px;">
+            <svg class="mdu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 40px; height: 40px; opacity: 0.4;">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+            </svg>
+            <p class="mdu-copy">Loading past papers…</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== ANNOUNCEMENTS ==================== -->
+    <div class="card">
+      <div class="card__header">
+        <h3 class="card__title">Announcements</h3>
+      </div>
+      <div class="card__body" id="announcementsList">
+        <div class="empty-state" style="padding: 16px;">
+          <svg class="mdu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 40px; height: 40px; opacity: 0.4;">
+            <path d="M22 11v-1a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h13a2 2 0 0 0 2-2v-1M19 7l5 5-5 5m-3-3h9v-9"/>
+          </svg>
+          <p class="mdu-copy">Loading announcements…</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<div id="loading" class="loading hidden" aria-hidden="true">
+  <div class="spinner"></div>
+</div>
+<div id="alertContainer" role="status" aria-live="polite"></div>
+
+</body>
+</html>
+

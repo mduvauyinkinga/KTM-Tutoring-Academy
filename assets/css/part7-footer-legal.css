@@ -1,0 +1,106 @@
+/* ================================================
+   21. FOOTER
+   ================================================ */
+.footer {
+  background: var(--color-bg-secondary);
+  border-top: 1px solid var(--color-border);
+  margin-top: var(--space-16);
+}
+
+.footer__container {
+  padding-block: var(--space-10);
+}
+
+.footer__head {
+  font-size: var(--text-base);
+  font-weight: 800;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-3);
+}
+
+.footer__grid {
+  display: grid;
+  gap: var(--space-5);
+  margin-bottom: var(--space-6);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.footer__group h4 {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-3);
+}
+
+.footer__group p,
+.footer__group a {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.footer__group a:hover {
+  color: var(--color-accent);
+}
+
+.footer__legal {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.footer__copyright {
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+}
+
+/* ================================================
+   22. LEGAL PAGES
+   ================================================ */
+.mdu-legal-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-block: var(--space-16);
+}
+
+.mdu-legal-card {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+}
+
+.mdu-legal-card h1,
+.mdu-legal-card h2 {
+  margin-top: var(--space-8);
+}
+
+.mdu-legal-card h2 {
+  font-size: var(--text-xl);
+  margin-bottom: var(--space-3);
+}
+
+.mdu-legal-card p,
+.mdu-legal-card li {
+  line-height: 1.7;
+  color: var(--color-text-primary);
+}
+
+.mdu-legal-card ul {
+  padding-left: var(--space-5);
+  margin-bottom: var(--space-4);
+}
+
+.mdu-legal-card li {
+  margin-bottom: var(--space-2);
+}
+
+.mdu-legal-note {
+  margin-top: var(--space-6);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--color-border);
+  font-size: var(--text-sm);
+  opacity: 0.8;
+}

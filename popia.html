@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>POPIA Information - KTM Academy</title>
+  <meta name="description" content="How to learn about and make requests concerning personal information processed by KTM Academy.">
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="theme.js"></script>
+  <script type="module" src="navbar.js"></script>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a class="nav-brand" href="index.html">
+        <svg class="mdu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+        </svg>
+        <span class="nav-brand__text">KTM Academy</span>
+      </a>
+      <div class="nav-wrapper">
+        <button class="hamburger" type="button" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
+        <div class="nav-links" id="navLinks">
+          <li><a href="index.html#home" class="nav-links__link">Home</a></li>
+          <li><a href="index.html#about" class="nav-links__link">About</a></li>
+          <li><a href="plans.html" class="nav-links__link">Study Plans</a></li>
+          <li><a href="contact.html" class="nav-links__link">Contact</a></li>
+          <li><a href="dashboard.html" class="nav-links__link dashboard-link hidden">Dashboard</a></li>
+          <li class="admin-only"><a href="admin.html" class="nav-links__link">Admin</a></li>
+        </div>
+        <div class="nav-actions">
+          <button id="themeToggle" class="btn btn--outline" type="button" aria-label="Switch to light mode">
+            <svg class="mdu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79"/>
+            </svg>
+          </button>
+        </div>
+        <div class="menu-overlay"></div>
+        <div class="mobile-menu">
+          <div class="nav-links">
+            <li><a href="index.html#home" class="nav-links__link">Home</a></li>
+            <li><a href="index.html#about" class="nav-links__link">About</a></li>
+            <li><a href="plans.html" class="nav-links__link">Study Plans</a></li>
+            <li><a href="contact.html" class="nav-links__link">Contact</a></li>
+            <li><a href="dashboard.html" class="nav-links__link dashboard-link hidden">Dashboard</a></li>
+            <li class="admin-only"><a href="admin.html" class="nav-links__link">Admin</a></li>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="mdu-legal-page">
+    <div class="container">
+      <div class="card mdu-legal-card">
+        <h1>POPIA information</h1>
+        <p class="mdu-legal-updated">Last updated: 6 May 2026</p>
+
+        <p>
+          This page summarizes how to find information about MathWithMDU's handling of personal
+          information under South Africa's Protection of Personal Information Act (POPIA). It is
+          not a replacement for the
+          <a href="privacy.html">Privacy Policy</a>, which describes our processing in more detail.
+        </p>
+
+        <h2>Information and use</h2>
+        <p>
+          We process information such as account details, authentication data, plan status, payment
+          references, upload metadata, and messages you send to us. We use it to manage accounts,
+          provide learning content, process payments, and respond to support requests.
+        </p>
+        <p>
+          Information may be shared with the service providers used to operate these features,
+          including Firebase/Google and Paystack. For more detail, see the
+          <a href="privacy.html">Privacy Policy</a>.
+        </p>
+
+        <h2>Privacy requests</h2>
+        <p>
+          You can contact us to ask about your personal information, request access or correction,
+          or raise a deletion, objection, or consent-withdrawal request where applicable.
+        </p>
+        <p>
+          Email <a href="mailto:dnmduduzi@gmail.com">dnmduduzi@gmail.com</a> or call/WhatsApp
+          <a href="https://wa.me/27637919877">063 791 9877</a>.
+        </p>
+
+        <div class="mdu-legal-note">
+          <p>
+            This is a brief guide, not legal advice. Please review the full
+            <a href="privacy.html">Privacy Policy</a> and contact us with questions or requests.
+            The policy should be reviewed by a South African legal professional.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  /* ============================================================
+   KTM ACADEMY — SHARED FOOTER FRAGMENT
+   This file is included by build-legal-pages.mjs and duplicated
+   on every public page.
+   ============================================================ */
+<footer class="footer">
+  <div class="footer__container">
+    <div class="footer__grid">
+      <div class="footer__group">
+        <h4 class="footer__head">KTM Academy</h4>
+        <p>
+          A modern educational platform for Grade 10–12 Mathematical Literacy
+          learners. Learn at your own pace, practise with purpose, and build
+          the confidence to achieve your academic goals.
+        </p>
+      </div>
+      <div class="footer__group">
+        <h4 class="footer__head">Quick Links</h4>
+        <div class="footer__links">
+          <a href="index.html#home">Home</a>
+          <a href="index.html#about">About</a>
+          <a href="plans.html">Study Plans</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div class="footer__group">
+        <h4 class="footer__head">Support</h4>
+        <div class="footer__links">
+          <a href="mailto:dnmduduzi@gmail.com">dnmduduzi@gmail.com</a>
+          <a href="https://wa.me/27637919877" target="_blank" rel="noopener noreferrer">WhatsApp / Call: 063 791 9877</a>
+        </div>
+      </div>
+      <div class="footer__group">
+        <h4 class="footer__head">Legal</h4>
+        <div class="footer__links">
+          <a href="terms.html">Terms &amp; Conditions</a>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="popia.html">POPIA</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__legal">
+      <p class="footer__copyright">&copy; 2026 KTM Academy. All rights reserved.</p>
+      <p class="footer__legal-note">
+        <svg class="mdu-icon mdu-icon-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+        This is a visual redesign prototype. No payment, authentication, or data storage functionality has been implemented in this phase.
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+  <div id="loading" class="loading hidden" aria-hidden="true">
+    <div class="spinner"></div>
+  </div>
+  <div id="alertContainer" role="status" aria-live="polite"></div>
+</body>
+</html>
