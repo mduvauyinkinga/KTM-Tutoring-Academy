@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# Vendored third-party tool (has its own repo) — not part of the site
+magic-mcp/
+
+# Environment / secrets — never commit
+.env
+.env.*
+*.pem
+*serviceAccount*.json
+server/serviceAccount*.json
+
+# Firebase
+.firebase/
+firebase-debug.log
+firestore-debug.log
+ui-debug.log
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
